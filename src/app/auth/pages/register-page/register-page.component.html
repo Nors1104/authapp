@@ -23,6 +23,9 @@
       </div>
       <div class="form-group">
         <label>Email</label>
+        <pre>
+          {{ controls["correo"].errors | json }}
+        </pre>
         <input
           type="email"
           formControlName="correo"

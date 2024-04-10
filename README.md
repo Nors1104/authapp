@@ -17,3 +17,5 @@ export y export default
 propiedades computadas
 static
 funciones que retornan funciones
+herencia
+polimorfismo
