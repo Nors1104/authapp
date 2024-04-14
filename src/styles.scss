@@ -7,3 +7,8 @@
 @import "bootstrap/scss/mixins";
 // boostrap 5
 @import "ngx-toastr/toastr-bs5-alert";
+
+.loginbg {
+  background: #007bff;
+  background: linear-gradient(to right, #0062e6, #33aeff);
+}

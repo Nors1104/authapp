@@ -1,30 +1,41 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [FormsModule, HttpClientModule],
+  imports: [FormsModule],
   providers: [AuthService],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss',
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit {
   loginObj: Login;
-  constructor(private authService: AuthService, private toastr: ToastrService) {
+  constructor(
+    private authService: AuthService,
+    private toastr: ToastrService,
+    @Inject(DOCUMENT) private document: any
+  ) {
     this.loginObj = new Login();
   }
+  ngOnInit(): void {
+    this.document.body.classList.add('loginbg');
+  }
   onLogin() {
-    try {
-      this.authService.doLogin(this.loginObj);
-    } catch (err) {
-      debugger;
-      this.toastr.error('Error', 'dddd');
-    }
+    this.authService.doLogin(this.loginObj).subscribe({
+      next: () => {
+        this.toastr.success('Atención', 'Bienvenido Norman');
+      },
+      error: ({ error }) => {
+        debugger;
+        this.toastr.error('Error', error.msg);
+      },
+    });
 
     // this.http
     //   .post('http://localhost:3000/api/auth/login', this.loginObj)
