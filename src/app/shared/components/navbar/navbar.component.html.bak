@@ -1,0 +1,6 @@
+<!-- topnavbar -->
+<div class="topnav shadow p-1">
+  <a>Admin Dashboard</a>
+  <span class="menu" (click)="openNav(true)"><i class="bi bi-list"></i></span>
+</div>
+<!-- topnavbar -->

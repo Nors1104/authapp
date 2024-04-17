@@ -1,0 +1,37 @@
+/* topnav css  */
+.topnav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: #fff;
+  border-bottom: 1px solid rgb(128, 128, 128);
+}
+
+.topnav a {
+  float: left;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 14px 16px;
+}
+
+.menu {
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #000;
+  display: none;
+}
+/* topnav css  */
+
+/* main-content */
+
+@media screen and (max-width: 500px) {
+  .menu {
+    display: block;
+  }
+}

@@ -1,0 +1,64 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card border-0 shadow rounded-3 my-5">
+        <div class="card-body p-4 p-sm-5">
+          <h5 class="card-title text-center mb-5 fw-light fs-5">Sign In</h5>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group form-floating mb-3">
+              <input
+                type="text"
+                formControlName="correo"
+                class="form-control"
+                required
+                placeholder="name@example.com"
+                id="correo"
+                name="correo"
+                [ngClass]="{
+                  'is-invalid': submitted && controls['correo'].errors
+                }"
+              />
+              <label for="correo">email</label>
+              @if (submitted && controls["correo"].errors) {
+              <div class="invalid-feedback">
+                @if (controls["correo"].errors['required']) {
+                <div>correo, es requerido</div>
+                }
+              </div>
+              }
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                formControlName="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                required
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid': submitted && controls['password'].errors
+                }"
+              />
+              @if (submitted && controls['password'].errors) {
+              <div class="invalid-feedback">
+                @if (controls['password'].errors['required']) {
+                <div>Password is required</div>
+                } @if (controls['password'].errors['minlength']) {
+                <div>Password must be at least 6 characters</div>
+                } @if (controls['password'].errors['maxlength']) {
+                <div>Pass must not exceed 40 characters</div>
+                }
+              </div>
+              }
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
