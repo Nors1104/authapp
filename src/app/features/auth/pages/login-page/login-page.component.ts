@@ -23,9 +23,9 @@ export class LoginPageComponent implements OnInit {
   //loginObj: Login;
   submitted = false;
   loginForm = this.fb.group({
-    correo: ['dd', [Validators.required, Validators.email]],
+    correo: ['test1@gmail.com', [Validators.required, Validators.email]],
     password: [
-      '',
+      '123456',
       [Validators.required, Validators.minLength(6), Validators.maxLength(13)],
     ],
     checkbox: [''],

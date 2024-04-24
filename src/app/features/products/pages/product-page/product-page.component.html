@@ -1,22 +1,6 @@
 <div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <!-- <th scope="col">#</th> -->
-        <th scope="col">nombre</th>
-        <!-- <th scope="col">estado</th>
-        <th scope="col">precio</th>
-        <th scope="col">categoria</th>
-        <th scope="col">descripcion</th>
-        <th scope="col">disponible</th> -->
-      </tr>
-    </thead>
-    <tbody>
-      @for (product of products; track product.id) {
-      <tr>
-        <td>{{ product.name }}</td>
-      </tr>
-      } @empty { Empty list of users }
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col"><product-list /></div>
+    <div class="col"><add-product-form /></div>
+  </div>
 </div>

@@ -9,7 +9,7 @@ import { Product } from '../models/product.model';
 })
 export class ProductsService {
   constructor(private http: HttpClient, private router: Router) {}
-
+  /*
   findProducts(): Observable<Product[]> {
     return this.http
       .get<Observable<Product[]>>(`${environment.apiURL}/products`)
@@ -17,5 +17,13 @@ export class ProductsService {
         debugger;
         return data;
       });
+  }*/
+  findProducts(): Observable<Product[]> {
+    const token: string = localStorage.getItem('token') || '';
+    const headers = {
+      'x-token': token,
+    };
+    const url = `${environment.apiURL}/products`;
+    return this.http.get<Product[]>(url, { headers });
   }
 }

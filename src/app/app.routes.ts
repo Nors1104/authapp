@@ -15,13 +15,13 @@ export const routes: Routes = [
         (r) => r.DASHBOARD_ROUTES
       ),
   },
-  {
-    path: 'products',
-    loadChildren: () =>
-      import('./features/products/products.routes').then(
-        (r) => r.PRODUCTS_ROUTES
-      ),
-  },
+  // {
+  //   path: 'products',
+  //   loadChildren: () =>
+  //     import('./features/products/products.routes').then(
+  //       (r) => r.PRODUCTS_ROUTES
+  //     ),
+  // },
   {
     path: '',
     redirectTo: '/dashboard',
