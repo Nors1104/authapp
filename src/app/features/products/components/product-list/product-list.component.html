@@ -3,6 +3,8 @@
     <tr>
       <!-- <th scope="col">#</th> -->
       <th scope="col">nombre</th>
+      <th scope="col">precio</th>
+      <th scope="col">disponible</th>
       <!-- <th scope="col">estado</th>
         <th scope="col">precio</th>
         <th scope="col">categoria</th>
@@ -14,6 +16,8 @@
     @for (product of products; track product._id) {
     <tr>
       <td>{{ product.nombre }}</td>
+      <td>{{ product.precio }}</td>
+      <td>{{ product.disponible }}</td>
       <td>
         <button class="btn btn-danger mx-3"><i class="bi bi-trash"></i></button
         ><button class="btn btn-primary">
@@ -21,6 +25,7 @@
         </button>
       </td>
     </tr>
+
     } @empty { Empty list of products }
   </tbody>
 </table>

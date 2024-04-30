@@ -4,4 +4,5 @@ export interface Product {
   user: string;
   precio: number;
   category: string;
+  disponible: boolean;
 }

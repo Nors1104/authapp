@@ -4,12 +4,19 @@ import { Router } from '@angular/router';
 import { catchError, filter, tap } from 'rxjs';
 import { AuthResponse } from '../interfaces/auth-response';
 import { environment } from '@envs/environment';
+import { UserDataService } from './userData.service';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private userDataService: UserDataService,
+    private userservice: UserService
+  ) {}
   // uso una interfaz anonima
   doRegister(values: {
     nombre: string;
@@ -33,6 +40,9 @@ export class AuthService {
       .pipe(
         tap((response: AuthResponse) => {
           localStorage.setItem('token', response.token);
+          this.userDataService.updateUserId(response.user.uid); //eetsa no va bien
+          this.userDataService.setId(response.user.uid);
+          this.userservice.setId(response.user.uid);
           this.router.navigateByUrl('/dashboard');
         })
       );

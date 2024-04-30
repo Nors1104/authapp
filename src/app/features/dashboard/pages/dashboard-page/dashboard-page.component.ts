@@ -25,7 +25,7 @@ export class DashboardPageComponent {
   ngOnInit(): void {
     let alldrpdwn = document.querySelectorAll('.dropdow-container');
     console.log(alldrpdwn, 'alldrpdwn#');
-    debugger;
+    //debugger;
     alldrpdwn.forEach((item: any) => {
       const a = item.parentElement?.querySelector('a:first-child');
       console.log(a, 'a#');

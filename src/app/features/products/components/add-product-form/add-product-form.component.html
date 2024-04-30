@@ -1,4 +1,92 @@
-<form action="">
+<form [formGroup]="addProductForm" (ngSubmit)="onSubmit()" action="">
   <h2>Agregar Producto</h2>
   <hr />
+  <div class="form-group">
+    <label>Nombre</label>
+    <input
+      type="text"
+      formControlName="nombre"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': submitted && controls['nombre'].errors
+      }"
+    />
+    @if (submitted && controls["nombre"].errors) {
+    <div class="invalid-feedback">
+      @if (controls["nombre"].errors['required']) {
+      <div>Nombre es requerido</div>
+      }
+    </div>
+    }
+  </div>
+
+  <div class="form-group">
+    <label>Precio</label>
+    <input
+      type="number"
+      formControlName="precio"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': submitted && controls['precio'].errors
+      }"
+    />
+    @if (submitted && controls["precio"].errors) {
+    <div class="invalid-feedback">
+      @if (controls["precio"].errors['required']) {
+      <div>Nombre es requerido</div>
+      }
+    </div>
+    }
+  </div>
+
+  <div class="form-group">
+    <label>Descripcion</label>
+    <input
+      type="text"
+      formControlName="descripcion"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': submitted && controls['descripcion'].errors
+      }"
+    />
+    @if (submitted && controls["descripcion"].errors) {
+    <div class="invalid-feedback">
+      @if (controls["descripcion"].errors['required']) {
+      <div>Descripcion es requerida</div>
+      }
+    </div>
+    }
+  </div>
+  <br />
+  <div class="form-group">
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="flexRadioDefault"
+        id="flexRadioDefault1"
+      />
+      <label class="form-check-label" for="flexRadioDefault1">
+        Disponible
+      </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="flexRadioDefault"
+        id="flexRadioDefault2"
+        checked
+      />
+      <label class="form-check-label" for="flexRadioDefault2">
+        No Disponible
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <br />
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </div>
+  <div>{{ userId }}{{ datos }}</div>
 </form>

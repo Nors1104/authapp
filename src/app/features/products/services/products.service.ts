@@ -26,4 +26,19 @@ export class ProductsService {
     const url = `${environment.apiURL}/products`;
     return this.http.get<Product[]>(url, { headers });
   }
+
+  addProduct(values: {
+    nombre: string;
+    precio: number;
+    descripcion: string;
+    usuario: string;
+    category: string;
+    estado: boolean;
+  }) {
+    this.http
+      .post(`${environment.apiURL}/products`, values)
+      .subscribe((response) => {
+        //mensaj ok o error??
+      });
+  }
 }
